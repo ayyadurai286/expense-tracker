@@ -1,0 +1,166 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 0 0% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 322 100% 77%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 222 47% 10%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 223 47% 15%;
+    --muted-foreground: 210 40% 80%;
+
+    --accent: 223 47% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 223 47% 15%;
+    --input: 223 47% 15%;
+    --ring: 322 100% 77%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 322 100% 77%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 223 47% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 223 47% 15%;
+    --sidebar-ring: 322 100% 77%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .expense-card {
+    @apply bg-secondary rounded-xl shadow-md p-4 border border-border transition-all hover:shadow-lg;
+  }
+  
+  .expense-entry {
+    @apply bg-card/70 rounded-lg shadow-sm p-4 border border-border/30 transition-all hover:shadow-md hover:bg-card;
+  }
+  
+  .expense-amount {
+    @apply font-semibold text-primary;
+  }
+  
+  .expense-category {
+    @apply text-xs font-medium bg-primary/20 text-primary px-3 py-1.5 rounded-full;
+  }
+
+  .today-badge {
+    @apply bg-primary text-white text-xs font-medium px-2 py-1 rounded-full;
+  }
+  
+  .expense-title {
+    @apply font-medium text-white mb-2;
+  }
+}
+
+/* Mobile responsiveness fix */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .popover-content {
+    max-width: 90vw;
+  }
+}
+
+/* Make the dropdown more visible in dark theme */
+.select-content,
+.popover-content,
+.dialog-content {
+  @apply bg-secondary border border-border;
+}
+
+/* Fix scrolling issues */
+html, 
+body, 
+#root {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make form labels more visible */
+.form-label {
+  @apply text-white font-medium;
+}
+
+/* Make error messages more visible */
+.form-message {
+  @apply text-destructive font-medium mt-1;
+}
