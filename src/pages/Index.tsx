@@ -45,7 +45,7 @@ const Index = () => {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState<boolean>(false);
   const [expenseToDelete, setExpenseToDelete] = useState<string | null>(null);
 
-  // Initialize Firebase
+  // Initialize Firestore categories for the user
   useEffect(() => {
     const init = async () => {
       try {
