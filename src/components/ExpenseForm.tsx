@@ -69,7 +69,7 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({
       setTitle(expenseToEdit.title || "");
       setAmount(expenseToEdit.amount.toString() || "");
 
-      wconst category = uniqueCategories.find(
+      const category = uniqueCategories.find(
         (c) => c.name === expenseToEdit.category
       );
       if (category) {
